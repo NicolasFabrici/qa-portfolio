@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Banking Application "–" QA Project</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="container breadcrumb">
+            <h1>Banking Web Application</h1>
+            <a href="index.html">Home</a>
+            <span> / </span>
+            <a href="index.html#projects">Projects</a>
+            <span> / </span>
+            <p>End-to-End QA Validation for Secure Financial Platform</p>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="container">
+            <h3>Project Overview</h3>
+            <p>
+                Web-based banking platform allowing users to manage accounts,
+                perform transfers, pay bills, and monitor transactions securely.
+            </p>
+
+            <h3>My Role</h3>
+            <ul>
+                <li>Designed and executed functional test cases</li>
+                <li>Validated API integrations for transaction processing</li>
+                <li>Performed regression testing before each release</li>
+                <li>Implemented automation with Selenium</li>
+                <li>Executed security-focused validation scenarios</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="section alt">
+        <div class="container">
+            <h3>Enterprise System Architecture</h3>
+
+            <p>
+                The platform follows a microservices-based architecture with secure authentication,
+                API gateway routing, and isolated business services handling financial operations.
+            </p>
+
+            <div class="architecture-diagram">
+
+                <div class="arch-box">Frontend (React Web App)</div>
+                <div class="arch-arrow">↓</div>
+
+                <div class="arch-box">API Gateway</div>
+                <div class="arch-arrow">↓</div>
+
+                <div class="arch-box">Authentication Server (JWT / OAuth2)</div>
+                <div class="arch-arrow">↓</div>
+
+                <div class="arch-box">Transaction Service</div>
+                <div class="arch-box">Account Service</div>
+                <div class="arch-box">Payment Service</div>
+
+                <div class="arch-arrow">↓</div>
+
+                <div class="arch-box">SQL Database Cluster</div>
+
+            </div>
+
+            <h4>Testing Strategy by Layer</h4>
+            <ul>
+                <li><strong>Unit Testing:</strong> Validation of business rules at service level</li>
+                <li><strong>Integration Testing:</strong> API contract validation between services</li>
+                <li><strong>End-to-End Testing:</strong> Full user transaction workflows</li>
+                <li><strong>Security Testing:</strong> Token validation, session expiration, access control</li>
+                <li><strong>Performance Testing:</strong> Load validation for concurrent transactions</li>
+            </ul>
+
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h3>CI/CD & Automation Strategy</h3>
+
+            <ul>
+                <li>Automated regression suite executed on every pull request</li>
+                <li>Smoke tests triggered after deployment to staging</li>
+                <li>Test execution integrated into CI pipeline (GitHub Actions)</li>
+                <li>Automated reporting and failure notifications</li>
+            </ul>
+
+            <p>
+                Regression coverage ensures transaction integrity and prevents critical
+                financial defects from reaching production.
+            </p>
+        </div>
+    </section>
+
+    <section class="section alt fade-in">
+        <div class="container">
+            <h3>API Testing – Transaction Service</h3>
+
+            <p>
+                REST API validation performed to ensure secure and accurate financial transactions.
+                Authentication handled via JWT tokens.
+            </p>
+
+            <h4>Sample Endpoint</h4>
+            <p><strong>POST</strong> /api/v1/transactions/transfer</p>
+
+            <h4>Request Headers</h4>
+            <pre class="code-block">
+                    Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+                    Content-Type: application/json
+                </pre>
+
+            <h4>Request Body</h4>
+            <pre class="code-block">
+                {
+                "fromAccount": "123456789",
+                "toAccount": "987654321",
+                "amount": 500.00,
+                "currency": "USD"
+                }
+                        </pre>
+
+            <h4>Expected Response (200 OK)</h4>
+            <pre class="code-block">
+                {
+                "transactionId": "TXN-2025-000345",
+                "status": "SUCCESS",
+                "timestamp": "2025-01-10T10:25:33Z"
+                }
+            </pre>
+
+            <h4>Validation Performed</h4>
+            <ul>
+                <li>Status code validation (200, 400, 401, 403)</li>
+                <li>Schema validation of JSON response</li>
+                <li>Balance consistency verification</li>
+                <li>Negative testing (insufficient funds, invalid account)</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="section fade-in">
+        <div class="container">
+            <h3>Performance Testing – Transaction Load Validation</h3>
+
+            <p>
+                Load and stress testing performed to validate transaction processing
+                stability under high concurrent user activity.
+            </p>
+
+            <h4>Test Scenarios Executed</h4>
+            <ul>
+                <li>1,000 concurrent users performing transfers</li>
+                <li>Peak load simulation during payroll processing hours</li>
+                <li>Stress testing beyond expected traffic thresholds</li>
+                <li>Response time validation under load</li>
+            </ul>
+
+            <h4>Key Metrics Observed</h4>
+            <ul>
+                <li>Average API response time: 320ms</li>
+                <li>95th percentile response time: 480ms</li>
+                <li>Error rate under peak load: 0.8%</li>
+                <li>No data loss during stress testing</li>
+            </ul>
+
+            <div class="charts">
+                <div class="chart-card">
+                    <h4>Response Time vs Concurrent Users</h4>
+                    <canvas id="performanceChart"></canvas>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="section alt fade-in">
+        <div class="container">
+            <h3>Database Validation & Data Integrity Testing</h3>
+
+            <p>
+                Post-transaction database validation performed to ensure financial accuracy
+                and ACID compliance.
+            </p>
+
+            <h4>Sample SQL Validation Query</h4>
+
+            <pre class="code-block">
+                SELECT account_id, balance
+                FROM accounts
+                WHERE account_id = '123456789';
+            </pre>
+
+            <h4>Validation Strategy</h4>
+            <ul>
+                <li>Balance deduction verified after transfer execution</li>
+                <li>Double-entry validation (debit & credit consistency)</li>
+                <li>Transaction logs cross-checked with API response</li>
+                <li>Rollback validation in failed transactions</li>
+            </ul>
+
+            <h4>Data Integrity Checks</h4>
+            <ul>
+                <li>No duplicate transaction IDs</li>
+                <li>Timestamp accuracy verification</li>
+                <li>Referential integrity validation</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="section alt">
+        <div class="container">
+            <h3>Key Test Scenarios</h3>
+            <ul>
+                <li>Funds transfer validation</li>
+                <li>Authentication & authorization testing</li>
+                <li>Input validation and edge cases</li>
+                <li>Transaction history accuracy</li>
+                <li>Session timeout & security checks</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="section alt">
+        <div class="container">
+            <h3>Project Quality Metrics</h3>
+
+            <div class="charts">
+                <div class="chart-card">
+                    <h4>Transaction Validation Accuracy</h4>
+                    <canvas id="transactionChart"></canvas>
+                </div>
+
+                <div class="chart-card">
+                    <h4>Security Test Coverage</h4>
+                    <canvas id="securityChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <a href="index.html" class="btn">← Back to Portfolio</a>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="assets/js/main.js"></script>
+
+    <button id="backToTop">↑</button>
+
+</body>
+
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>E-Commerce Case Study | Nicolas Fabrici</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="container breadcrumb">
+            <a href="index.html">Home</a>
+            <span> / </span>
+            <a href="index.html#projects">Projects</a>
+            <span> / </span>
+            <strong>E-Commerce</strong>
+        </div>
+    </header>
+
+
+    <section class="hero small-hero">
+        <div class="container">
+            <h2>E-Commerce Platform</h2>
+            <p class="subtitle">Quality Case Study – Risk-Based Testing Approach</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h3>Executive Summary</h3>
+            <p>
+                This project involved defining and executing a comprehensive testing strategy
+                for a revenue-critical e-commerce platform. The main objective was to ensure
+                transactional integrity, accurate price calculations and secure payment processing.
+            </p>
+            <p>
+                A risk-based testing approach was implemented to prioritize high-impact areas
+                such as checkout and payment gateway integration.
+            </p>
+        </div>
+    </section>
+
+    <section class="section alt">
+        <div class="container">
+            <h3>Business Context</h3>
+            <p>
+                Web application supporting product browsing, user authentication,
+                cart management and online payments. The system handles high daily traffic
+                and processes sensitive financial transactions.
+            </p>
+
+            <h4>Scope</h4>
+            <ul>
+                <li>User authentication and session management</li>
+                <li>Product filtering and search</li>
+                <li>Cart price calculation logic</li>
+                <li>Checkout process</li>
+                <li>Payment validation and order confirmation</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h3>Risk Analysis</h3>
+
+            <div class="card">
+                <strong>Critical Risk:</strong> Payment failure during transaction
+                <br>Impact: Revenue loss and customer dissatisfaction
+                <br>Mitigation: Early validation and regression focus on payment scenarios
+            </div>
+
+            <div class="card" style="margin-top:20px;">
+                <strong>High Risk:</strong> Incorrect cart total calculation
+                <br>Impact: Financial discrepancy
+                <br>Mitigation: Boundary value and price validation tests
+            </div>
+        </div>
+    </section>
+
+    <section class="section alt">
+        <div class="container">
+            <h3>Testing Strategy</h3>
+
+            <ul>
+                <li>Smoke testing before each release candidate</li>
+                <li>Full functional regression cycle</li>
+                <li>Boundary value analysis for quantity and price fields</li>
+                <li>Negative testing for payment scenarios</li>
+                <li>Exploratory testing focused on checkout usability</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="section alt">
+        <div class="container">
+            <h3>Project Quality Metrics</h3>
+
+            <div class="charts">
+                <div class="chart-card">
+                    <h4>Defects per Sprint</h4>
+                    <canvas id="sprintChart"></canvas>
+                </div>
+
+                <div class="chart-card">
+                    <h4>Automation Coverage by Module</h4>
+                    <canvas id="automationChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section alt">
+        <div class="container">
+            <h3>Results & Impact</h3>
+            <p>
+                Early detection of payment validation defects prevented potential
+                revenue loss before production release.
+            </p>
+            <p>
+                The structured regression approach significantly reduced post-release issues
+                and increased stakeholder confidence.
+            </p>
+
+            <h4>Lessons Learned</h4>
+            <ul>
+                <li>Prioritizing business-critical flows reduces production risk.</li>
+                <li>Clear severity classification improves resolution time.</li>
+                <li>Risk alignment must drive test coverage decisions.</li>
+            </ul>
+        </div>
+    </section>
+
+    <button id="backToTop">↑</button>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
